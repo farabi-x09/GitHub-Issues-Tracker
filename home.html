@@ -21,10 +21,35 @@
 <link rel="stylesheet" href="style.css">
 
 </head>
-<body>
-    
- <h1>hi</h1>
-    
+<body class="bg-base-200">
+    <!-- navbar -->
+     <div class="bg-white ">
+
+    <div class="navbar flex sm:justify-between justify-center flex-wrap   mt-2 w-11/12 mx-auto space-y-5 items-stretch gap-2">
+
+  <div class=" flex items-center gap-2 h-full">
+    <img class="w-10" src="./assets/github-logo.png" alt="">
+    <p class="text-2xl sm:text-3xl font-semibold">GitHub Issues Tracker</p>
+  </div>
+  <div class="flex gap-5 ">
+    <input type="text" placeholder="Search issues..." class="input input-bordered w-24 md:w-auto" />
+    <button class="btn btn-primary hover:bg-success">+ New Issue</button>
+  </div>
+</div>
+</div>
+
+<!-- menu -->
+<div class="bg-white mt-5 w-10/12 mx-auto rounded-lg flex justify-center sm:justify-start">
+     <ul class="menu menu-horizontal space-x-2  ">
+  <li><button class="btn">All</button></li>
+  <li><button class="btn">Open</button></li>
+  <li><button class="btn">Closed</button></li>
+</ul>
+</div>
+
+<div>
+    <p>hi</p>
+</div>
 
     <script src="script.js"></script>
 </body>
