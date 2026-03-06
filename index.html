@@ -18,11 +18,59 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-
+<link rel="stylesheet" href="style.css">
 
 </head>
 <body>
-    <h1 class="">GitHub Issues Tracker</h1>
+    
+
+      <div class="form pt-10 bg-amber-100">
+
+      
+
+          <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto rounded-2xl">
+
+            <!-- img part -->
+              <div class=" items-center justify-center flex flex-col">
+            <img src="./assets/github-logo.png" alt="">
+            <h1 class="mt-8 font-bold text-2xl text-[#1F2937]">GitHub Issues Tracker</h1>
+            <p class="text-[#64748B]">Sign in to manage your issues</p>
+        </div>
+
+
+            <div class="card-body">
+        <fieldset class="fieldset">
+          <label class="label text-[#1F2937] font-medium">Username</label>
+
+          <input id="input_usr_name" maxlength="5" minlength="5" type="text" class="input rounded-lg bg-base-100" placeholder="Enter Username" />
+          <p class="text-[#4A00FF]">
+            Default: admin
+          </p>
+
+          <br>
+
+          <label class="label text-[#1F2937] font-medium">Password</label>
+
+          <input id="input_usr_password" type="password" maxlength="8" class="input rounded-lg bg-base-100" placeholder="Enter Password" />
+          <p class="text-[#4A00FF]">
+            Default: admin123
+          </p>
+
+          <button id="login-btn" class="btn btn-primary mt-4 rounded-lg">Sign In</button>
+        </fieldset>
+      </div>
+      
+      <div class="divider">OR</div>
+      <p class="text-center text-[#64748B]">Demo Credentials:</p>
+      <div class="my-2 py-5 space-y-2 text-center bg-[#F8FAFC] w-11/12 mx-auto">
+        <p> <span class="font-semibold">Username:</span> admin</p>
+        <p><span class="font-semibold">
+Password:</span> admin123</p>
+      </div>
+
+    </div>
+  </div>
+
     <script src="script.js"></script>
 </body>
 </html>
