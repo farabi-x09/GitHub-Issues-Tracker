@@ -31,11 +31,70 @@ async function showCart(){
 
 };
 
+
+
+function getLabelData(label) {
+    const l = label.toLowerCase();
+    
+    if (l === 'bug') {
+        return { 
+            icon: 'fa-bug', 
+            color: 'bg-red-100 text-red-600 border-red-200' 
+        };
+    }
+    if (l === 'help wanted') {
+        return { 
+          
+            icon: 'fa-life-ring', 
+            color: 'bg-yellow-100 text-yellow-600 border-yellow-200' 
+        };
+    }
+    if (l === 'enhancement') {
+        return { 
+            icon: 'fa-wand-magic-sparkles', 
+            color: 'bg-green-100 text-green-600 border-green-200' 
+        };
+    }
+    if (l === 'good first issue') {
+        return { 
+            icon: 'fa-clover', 
+            color: 'bg-blue-100 text-blue-600 border-blue-200' 
+        };
+    }
+    
+    return { 
+        icon: 'fa-tag', 
+        color: 'bg-gray-100 text-gray-600 border-gray-200' 
+    };
+};
+
+function getPriorityStyle(priority) {
+    const p = priority.toLowerCase();
+    if (p === 'high') {
+        return {
+            color: 'bg-red-200 p-1 rounded-lg text-red-500'
+        };
+    }
+    if (p === 'medium') {
+        return {
+            color: 'bg-yellow-200 p-1 rounded-lg text-yellow-500'
+        };
+    }
+    if (p === 'low') {
+        return {
+            color: 'bg-green-200 p-1 rounded-lg text-green-500'
+        };
+    }
+    return { color: 'text-gray-500' };
+}
+
+
 function display(data1){
     console.log(data1);
     data1.forEach((data2) =>{
-        console.log(data2);
+        // console.log(data2);
         const div = document.createElement("div");
+      const pStyle = getPriorityStyle(data2.priority);
         div.innerHTML = `
         <div class="card bg-base-100 h-full shadow-2xl">
  
@@ -43,23 +102,31 @@ function display(data1){
 
     <div class="flex items-center justify-between ">
       <div>
-      <img class="w-5 h-5" src="./assets/Open-Status.png" alt="">
+      <img id="open_closed" class="w-5 h-5" src="${data2.status === 'open' ? './assets/Open-Status.png' : './assets/Closed- Status .png'} " alt="">
       </div>  
       <div>
-      <p id="priority">${data2.priority}</p>
+     <p class="text-xs font-semibold uppercase ${pStyle.color}">${data2.priority}</p>
       </div>
     </div>
     <h2 id="title" class="card-title">${data2.title}</h2>
     <p id="description" class="line-clamp-2">${data2.description}</p>
-   <div id="labels" class="flex flex-wrap gap-2 ">
-  ${data2.labels.map(label => `
-    <span class="badge badge-outline text-xs p-3">${label}</span>
-  `).join('')}
+ 
+    <div id="labels" class="flex flex-wrap gap-2 mt-2">
+    ${data2.labels.map(label => {
+        const info = getLabelData(label);
+        
+        return `
+            <span class="px-2 py-1 rounded-md border text-[10px] font-bold uppercase flex items-center gap-1 ${info.color}">
+                <i class="fa-solid ${info.icon}"></i> 
+                ${label}
+            </span>
+        `;
+    }).join('')}
 </div>
     
     <hr>
     <div class="space-y-2">
-      <p class="text-[#64748B]" id="">#1 by <span id="author"> ${data2.author}</span></p>
+      <p class="text-[#64748B]" id="">#<span id="id"> ${data2.id}</span> by <span id="author"> ${data2.author}</span></p>
       <p class="text-[#64748B]" id="createdAt">${new Date(data2.createdAt).toLocaleDateString('en-GB')}</p>
     </div>
    
