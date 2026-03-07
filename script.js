@@ -4,11 +4,13 @@ const all_btn = document.getElementById("all_btn");
 const open_btn = document.getElementById("open_btn");
 const closed_btn = document.getElementById("closed_btn");
 const count_issues = document.getElementById("count_issues");
+const loading_spinner = document.getElementById("loading_spinner");
+
 
 
  const btnList = [all_btn, open_btn, closed_btn];
 
-all_btn.classList.add("btn-primary");
+all_btn.classList.add("btn-primary", "text-white");
 
 function toggle_btn(clickedBtn , status){
     
@@ -17,14 +19,18 @@ function toggle_btn(clickedBtn , status){
           btn.classList.remove("btn-primary", "text-white");
     });
      clickedBtn.classList.add("btn-primary", "text-white");
-
-    if(status === 'all'){
+     show_loading()
+setTimeout(() => {
+     if(status === 'all'){
         display(allIssues);
     }
     else{
         const filter_data = allIssues.filter(issue => issue.status === status);
         display(filter_data);
     }
+    hide_loading()
+}, 500);
+   
 
  
 };
@@ -35,13 +41,23 @@ function toggle_btn(clickedBtn , status){
 // cart container
 const cart_container = document.getElementById("cart_container");
 
+function show_loading(){
+    loading_spinner.classList.remove("hidden");
+    cart_container.innerHTML ="";
+
+}
+function hide_loading(){
+    loading_spinner.classList.add("hidden");
+}
+
 async function showCart(){
+    show_loading();
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const dataItem = await res.json();
     allIssues = dataItem.data;
     display(allIssues);
 
-
+    hide_loading()
 };
 
 
