@@ -56,9 +56,9 @@
 <!-- menu -->
 <div class="bg-white mt-5 w-10/12 mx-auto rounded-lg flex justify-center sm:justify-start p-2">
      <ul class="menu menu-horizontal space-x-2  ">
-  <li><button onclick="toggle_btn(all_btn)" id="all_btn" class="btn">All</button></li>
-  <li><button onclick="toggle_btn(open_btn)" id="open_btn" class="btn">Open</button></li>
-  <li><button onclick="toggle_btn(closed_btn)" id="closed_btn" class="btn">Closed</button></li>
+  <li><button onclick="toggle_btn(all_btn, 'all')" id="all_btn" class="btn">All</button></li>
+  <li><button onclick="toggle_btn(open_btn, 'open')" id="open_btn" class="btn">Open</button></li>
+  <li><button onclick="toggle_btn(closed_btn, 'closed')" id="closed_btn" class="btn">Closed</button></li>
 </ul>
 </div>
 
@@ -141,19 +141,4 @@
 </html>
 
 
- <!-- <div id="labels" class="flex flex-wrap gap-2 ">
-  ${data2.labels.map(label => `
-    <span class="badge badge-outline text-xs p-3">${label}</span>
-  `).join('')}
-</div> -->
-
-
-<!--    
-  <div id="labels" class="flex flex-wrap gap-2 mt-2">
-    ${data2.labels.map(label => {
-        // এখানে আপনার ফাংশনটি কল করতে হবে
-        const colorClass = getLabelColor(label); 
-        
-        return `<span class="badge ${colorClass} text-[10px] uppercase p-2">${label}</span>`;
-    }).join('')}
-</div> -->
+ 

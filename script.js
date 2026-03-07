@@ -1,19 +1,31 @@
+let allIssues = [];
 // toggle bts
 const all_btn = document.getElementById("all_btn");
 const open_btn = document.getElementById("open_btn");
 const closed_btn = document.getElementById("closed_btn");
+const count_issues = document.getElementById("count_issues");
+
 
  const btnList = [all_btn, open_btn, closed_btn];
 
 all_btn.classList.add("btn-primary");
 
-function toggle_btn(clickedBtn){
+function toggle_btn(clickedBtn , status){
     
     // console.log(btn);
    btnList.forEach((btn) =>{
           btn.classList.remove("btn-primary", "text-white");
     });
      clickedBtn.classList.add("btn-primary", "text-white");
+
+    if(status === 'all'){
+        display(allIssues);
+    }
+    else{
+        const filter_data = allIssues.filter(issue => issue.status === status);
+        display(filter_data);
+    }
+
  
 };
 // toggle btns end
@@ -26,7 +38,8 @@ const cart_container = document.getElementById("cart_container");
 async function showCart(){
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const dataItem = await res.json();
-    display(dataItem.data);
+    allIssues = dataItem.data;
+    display(allIssues);
 
 
 };
@@ -90,19 +103,23 @@ function getPriorityStyle(priority) {
 
 
 function display(data1){
-    console.log(data1);
+    count_issues.innerText = data1.length;
+    cart_container.innerHTML = "";
+    // console.log(data1);
     data1.forEach((data2) =>{
         // console.log(data2);
         const div = document.createElement("div");
       const pStyle = getPriorityStyle(data2.priority);
+      const statusColor = data2.status === 'open' ? 'border-green-500' : 'border-purple-500';
+
         div.innerHTML = `
-        <div class="card bg-base-100 h-full shadow-2xl">
+        <div class="card bg-base-100 h-full shadow-2xl border-t-4 ${statusColor}">
  
-  <div class="card-body">
+  <div class="card-body ">
 
     <div class="flex items-center justify-between ">
       <div>
-      <img id="open_closed" class="w-5 h-5" src="${data2.status === 'open' ? './assets/Open-Status.png' : './assets/Closed- Status .png'} " alt="">
+      <img id="open_closed" class="w-5 h-5" src="${data2.status === 'open' ? './assets/Open-Status.png' : './assets/Closed-Status .png'} " alt="">
       </div>  
       <div>
      <p class="text-xs font-semibold uppercase ${pStyle.color}">${data2.priority}</p>
@@ -137,3 +154,5 @@ function display(data1){
     })
 }
 showCart();
+
+
