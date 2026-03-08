@@ -53,6 +53,62 @@
 </div>
 </div>
 
+
+<!-- modal -->
+ <!-- Open the modal using ID.showModal() method -->
+<!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+
+<dialog id="my_modal_1" class="modal">
+  <div class="modal-box ">
+    <h3 id="title" class="text-xl font-bold">Fix broken image uploads!</h3>
+
+    <div class="flex justify-start space-x-3 text-sm my-5 items-center ">
+      <p id="status">Opened</p>
+      <div class="w-1 h-1 rounded-full bg-amber-500 "></div>
+      <p class="text-[#64748B]">Open by <span id="assignee">Fahim vai</span></p>
+      <div class="w-1 h-1 rounded-full bg-amber-500 "></div>
+      <p id="updatedAt" class="text-[#64748B]">22/02/2026</p>
+    </div>
+    <div id="labels"></div>
+    
+<!-- 
+   <div id="labels" class="flex flex-wrap gap-2 mt-2">
+    ${data2.labels.map(label => {
+        const info = getLabelData(label);
+        
+        return `
+            <span class="px-2 py-1 rounded-md border text-[10px] font-bold uppercase flex items-center gap-1 ${info.color}">
+                <i class="fa-solid ${info.icon}"></i> 
+                ${label}
+            </span>
+        `;
+    }).join('')}
+</div> -->
+
+    <p id="description" class="py-4 text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p>
+
+    <div class="bg-[#F8FAFC] rounded-lg flex flex-start space-x-20 p-3">
+      <div class="space-y-2 ">
+        <p class="text-[#64748B]">Assignee:</p>
+        <p id="assignee_name" class="font-semibold">farabi</p>
+      </div>
+      <div class="space-y-2">
+        <p class="text-[#64748B] ">Priority:</p>
+        <p id="priority">hi</p>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="modal-action">
+      <form method="dialog">
+       
+        <button class="btn btn-primary">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
 <!-- menu -->
 <div class="bg-white mt-5 w-10/12 mx-auto rounded-lg flex justify-center sm:justify-start p-2">
      <ul class="menu menu-horizontal space-x-2  ">

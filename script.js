@@ -5,6 +5,16 @@ const open_btn = document.getElementById("open_btn");
 const closed_btn = document.getElementById("closed_btn");
 const count_issues = document.getElementById("count_issues");
 const loading_spinner = document.getElementById("loading_spinner");
+const my_modal_1 = document.getElementById("my_modal_1");
+const modal_title = document.getElementById("title");
+const modal_labels = document.getElementById("labels");
+const modal_status = document.getElementById("status");
+const modal_assignee = document.getElementById("assignee");
+const modal_updatedAt = document.getElementById("updatedAt");
+const modal_description = document.getElementById("description");
+const assignee_name = document.getElementById("assignee_name");
+const priority = document.getElementById("priority");
+
 
 
 
@@ -129,9 +139,9 @@ function display(data1){
       const statusColor = data2.status === 'open' ? 'border-green-500' : 'border-purple-500';
 
         div.innerHTML = `
-        <div class="card bg-base-100 h-full shadow-2xl border-t-4 ${statusColor}">
+        <div class="card bg-base-100 h-full shadow-2xl border-t-4 ${statusColor} cursor-pointer">
  
-  <div class="card-body ">
+  <div class="card-body " onclick="openModal(${data2.id})">
 
     <div class="flex items-center justify-between ">
       <div>
@@ -171,4 +181,57 @@ function display(data1){
 }
 showCart();
 
+async function openModal(modId){
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${modId}`);
+    const data = await res.json();
+    const modDetails = data.data;
+    console.log(modDetails);
+    modal_title.textContent= modDetails.title
+    modal_labels.innerHTML=`
+    <div id="labels" class="flex flex-wrap gap-2 mt-2">
+    ${modDetails.labels.map(label => {
+        const info = getLabelData(label);
+        
+        return `
+            <span class="px-2 py-1 rounded-md border text-[10px] font-bold uppercase flex items-center gap-1 ${info.color}">
+                <i class="fa-solid ${info.icon}"></i> 
+                ${label}
+            </span>
+        `;
+    }).join('')}
+</div> 
+    `
+
+const status_badge = modal_status;
+    status_badge.textContent = modDetails.status;
+status_badge.className = "px-3 py-1 rounded-full text-white text-xs font-bold uppercase";
+    
+    if (modDetails.status === 'open') {
+        status_badge.classList.add("bg-green-500");
+    } else {
+        status_badge.classList.add("bg-purple-500");
+    }
+
+
+modal_assignee.textContent= modDetails.assignee;
+assignee_name.textContent= modDetails.assignee
+modal_updatedAt.textContent= new Date(modDetails.updatedAt).toLocaleDateString('en-GB');
+modal_description.textContent =modDetails.description;
+
+priority.textContent= modDetails.priority;
+priority.className = " p-2 rounded-xl text-white font-semibold uppercase";
+if(modDetails.priority=== "high"){
+    priority.classList.add("bg-red-500");
+}
+if(modDetails.priority=== "medium"){
+    priority.classList.add("bg-yellow-500");
+}else{
+    priority.classList.add("bg-green-500")
+}
+
+    
+
+    
+    my_modal_1.showModal();
+};
 
