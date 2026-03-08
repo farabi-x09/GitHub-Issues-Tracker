@@ -223,7 +223,7 @@ priority.className = " p-2 rounded-xl text-white font-semibold uppercase";
 if(modDetails.priority=== "high"){
     priority.classList.add("bg-red-500");
 }
-if(modDetails.priority=== "medium"){
+else if(modDetails.priority=== "medium"){
     priority.classList.add("bg-yellow-500");
 }else{
     priority.classList.add("bg-green-500")
@@ -234,4 +234,21 @@ if(modDetails.priority=== "medium"){
     
     my_modal_1.showModal();
 };
+// search
+const searchField = document.getElementById("search_field");
 
+searchField.addEventListener("input", (e) => {
+    const searchText = e.target.value.toLowerCase();
+   
+    show_loading();
+
+    const filteredData = allIssues.filter(issue => 
+        issue.title.toLowerCase().includes(searchText) || 
+        issue.description.toLowerCase().includes(searchText)
+    );
+
+    setTimeout(() => {
+        display(filteredData);
+        hide_loading();
+    }, 300);
+});
