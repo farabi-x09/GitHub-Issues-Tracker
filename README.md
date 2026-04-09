@@ -1,41 +1,63 @@
-Live link: https://farabi-x09.github.io/GitHub-Issues-Tracker/
+# 📋 Job Tracker
 
- ***********
-1️⃣ What is the difference between var, let, and const?
+A modern, responsive job application tracking dashboard designed to help users manage their hiring process. Featuring a Figma-inspired UI, this tool allows users to track job statuses like "Interviewing" or "Rejected" with real-time statistical updates.
 
-ans :
-** var:-
-var is JavaScript's primitive method of declaring variables. It is function-scoped, meaning that if it is declared inside a function, it works only within that function. But it can be used from outside even if inside an (if) or (for) block. It is possible to declare it repeatedly with the same name.
+## 🚀 Live Demo
+**[https://github-issues-tracker-by.netlify.app/]** |     
 
-////
-**let:-
-let is a block-scoped variable. It only works inside the { } block it is declared in. Its value can be changed later, but cannot be declared twice with the same name within the same block.
+**[https://github.com/farabi-x09/GitHub-Issues-Tracker]**      
 
-////
-**const:-
-const declares a variable whose value will never change (constant). It is also block-scoped. Once a value is set, it cannot be reassigned and cannot be re-declared with the same name.
-************
-2️⃣ What is the spread operator (...)?
-ans:
-The Spread Operator (...) in JavaScript is three dots, which are used to "spread" all the elements inside an Array or Object separately.
-************
-3️⃣ What is the difference between map(), filter(), and forEach()?
-ans:
-**map():-
-It creates a new array by transforming each element of an array. The original array remains unchanged.
+Default: admin   
+Default: admin123
 
-///
-**filter():-
-It creates a new array by sorting the elements based on a certain condition.
-///
-**forEach():-
-It is used to perform a specific operation on each element of an array. It does not return anything by itself .
 
-**********
-4️⃣ What is an arrow function?
-ans:-
-Arrow function is a new JavaScript syntax that makes it easy to create functions with minimal code. It avoids using the traditional "function" keyword and uses an arrow (=>) instead.
-*********
-5️⃣ What are template literals?
-ans:-
-Template Literals are an easy way to create dynamic strings in JavaScript. It is written using backticks (`) and allows variables or expressions to be placed directly inside the string.
+
+
+---
+## 📸 Project Screenshot
+<img width="1313" height="958" alt="gitisssu" src="https://github.com/user-attachments/assets/9c36de90-766a-4012-9315-d5be4bac1f96" />
+
+## 🧐 Project Overview
+This project is a dynamic web application built for job seekers to organize their career hunt. Users can view a list of available jobs and categorize them into different stages. The core focus of this project was to practice complex DOM manipulation, state management in Vanilla JavaScript, and creating a seamless user experience without the need for external frameworks.
+
+## ✨ Key Features
+* **Figma-Style Dashboard:** A clean, professional sidebar and header layout inspired by modern design tools.
+* **Dynamic Status Switching:** Instantly move job cards between "Interview" and "Rejected" categories. 
+* **Real-Time Statistics:** Counters in the dashboard update immediately whenever a job status changes or a card is deleted.
+* **Smart Tab Navigation:** Filter jobs by status (All, Interview, Rejected). If a category is empty, a custom "No Jobs Available" message with an icon is displayed.
+* **Responsive Design:** Fully optimized for all screen sizes, from mobile phones to large desktops.
+* **Clean UI/UX:** No filler text (lorem ipsum); all job data and descriptions are meaningful.
+
+## 🛠️ Technology Stack
+* **HTML5:** Semantic structure.
+* **CSS3 / Tailwind CSS / DaisyUI:** For rapid, responsive styling and modern components.
+* **JavaScript (ES6):** For dynamic filtering, event handling, and UI logic.
+
+---
+
+## ⚙️ Installation & Local Setup
+To run this project on your local machine, follow these steps:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/your-username/repository-name.git](https://github.com/your-username/repository-name.git)
+    ```
+2.  **Navigate to the project folder:**
+    ```bash
+    cd repository-name
+    ```
+3.  **Open the project:**
+    * Simply open `index.html` in your browser.
+    * *Recommended:* Use the **VS Code Live Server** extension for the best experience.
+
+---
+
+
+---
+
+
+
+
+---
+
+**Developed with ❤️ by Farabi Ahmed**
