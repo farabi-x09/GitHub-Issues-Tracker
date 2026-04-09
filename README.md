@@ -40,11 +40,11 @@ To run this project on your local machine, follow these steps:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/repository-name.git](https://github.com/your-username/repository-name.git)
+    git clone https://github.com/farabi-x09/GitHub-Issues-Tracker.git
     ```
 2.  **Navigate to the project folder:**
     ```bash
-    cd repository-name
+    cd GitHub-Issues-Tracker
     ```
 3.  **Open the project:**
     * Simply open `index.html` in your browser.
